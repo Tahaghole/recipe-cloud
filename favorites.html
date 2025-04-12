@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Favorites</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="favorites.js" defer></script>
+</head>
+<body>
+  <div class="navbar">
+    <h2>❤️ My Favorites</h2>
+    <div class="nav-actions">
+      <button onclick="location.href='home.html'">🏠 Home</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+  <div id="favorites"></div>
+</body>
+</html>
