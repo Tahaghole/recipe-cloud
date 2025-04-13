@@ -1,31 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Supabase Recipe App</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>Recipe Master</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="box">
-  <h2>🍽️ Supabase Recipe App</h2>
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
-  <button onclick="signup()">Sign Up</button>
-  <button onclick="login()">Log In</button>
-  <button onclick="logout()">Log Out</button>
-  <p id="user-status">Checking login status...</p>
-</div>
+  <header>
+    <h1>🍽 Recipe Master</h1>
+    <button id="logoutBtn" class="btn logout-btn hidden">Logout</button>
+  </header>
 
-<div class="box">
-  <h3>Get a Random Meal</h3>
-  <button id="get_meal">Get Meal 🍔</button>
-  <div id="meal"></div>
-</div>
+  <div class="container">
+    <aside>
+      <button id="viewSavedMeals" class="btn hidden">View Saved Meals</button>
+      <button id="viewGroceryList" class="btn hidden">View Grocery List</button>
+    </aside>
 
-<script src="script.js"></script>
+    <main>
+      <div id="authSection">
+        <h2 id="welcomeText">Sign in or Sign up to continue</h2>
+        <div id="authForm">
+          <button id="loginBtn" class="btn">Login</button>
+          <button id="signupBtn" class="btn">Signup</button>
+        </div>
+      </div>
+
+      <div id="mainContent" class="hidden">
+        <button id="getMeal" class="btn">🍔 Get Meal</button>
+        <div id="mealContainer"></div>
+        <div id="savedMealsContainer"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Grocery List -->
+  <div id="groceryModal" class="modal hidden">
+    <h3>Your Grocery List</h3>
+    <ul id="groceryListItems"></ul>
+    <button class="btn" onclick="toggleGroceryModal()">Close</button>
+  </div>
+  <div id="modalOverlay" class="overlay hidden" onclick="toggleGroceryModal()"></div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <script src="app.js"></script>
 </body>
 </html>
